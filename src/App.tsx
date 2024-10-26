@@ -1,14 +1,16 @@
-import { AppSidebar } from "./components/AppSidebar";
+// import { AppSidebar } from "./components/AppSidebar";
 import Navbar from "./components/navbar/Navbar";
-import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
+import Home from "./pages/Home";
+/* import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
 import Dashboard from "./pages/Dashboard";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom"; */
 
 function App() {
   return (
     <>
     <Navbar/>
-      <SidebarProvider>
+    <Home/>
+      {/* <SidebarProvider>
         <AppSidebar />
         <main className="w-full">
           <SidebarTrigger />
@@ -17,7 +19,7 @@ function App() {
             <Outlet />
           </div>
         </main>
-      </SidebarProvider>
+      </SidebarProvider> */}
     </>
   );
 }

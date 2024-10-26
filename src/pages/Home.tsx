@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { Blog } from "./Blogs";
 import { SkillApiResponse } from "./Skills";
 import SkillCard from "./SkillCard";
+import Banner from "@/components/banner/Banner";
+import Self from "@/components/self/self";
+import Contact from "@/components/contact/Contact";
+import Footer from "@/components/footer/Footer";
 
 const Home = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -58,94 +62,101 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="lg:pr-10">
-      <div className="">
-        <h1 className="text-3xl font-bold text-center pt-10 underline">
-          Projects
-        </h1>
+    <div className="space-y-24 bg-[#111827] text-white">
+  {/* Banner Section */}
+  <div className="w-full min-h-screen">
+    <Banner />
+  </div>
+  
+  {/* Self Section */}
+  <div className="w-full min-h-screen">
+    <Self />
+  </div>
 
-        <div className="grid grid-cols-1 place-items-center mx-auto lg:grid-cols-3 gap-10 justify-center items-center mt-10">
-          {projects.map((project) => (
-            <div
-              key={project._id}
-              className="project-card group w-80 h-96 bg-gray-300 shadow-lg rounded-lg overflow-hidden relative transform transition-transform duration-500 hover:scale-105"
-            >
-              <img
-                src={project.image || "https://via.placeholder.com/320x180"} // Use project image or placeholder
-                alt="Project Image"
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-6">
-                <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-                <p className="text-gray-600 mb-4 h-20">{project.description}</p>
-              </div>
-            </div>
-          ))}
+  {/* Projects Section */}
+  <section className="py-24 bg-gradient-to-r from-indigo-600 to-purple-600">
+    <h1 className="text-4xl font-extrabold text-center mb-12 text-white animate-fade-in-up">
+      Projects
+    </h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-6 lg:px-24">
+      {projects.map((project) => (
+        <div
+          key={project._id}
+          className="group transform transition duration-300 hover:scale-105 bg-yellow-500/20 shadow-xl rounded-lg overflow-hidden"
+        >
+          <img
+            src={project.image || "https://via.placeholder.com/320x180"}
+            alt="Project Image"
+            className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="p-6 text-yellow-200 space-y-4">
+            <h2 className="text-2xl font-bold">{project.title}</h2>
+            <p className="text-yellow-100">{project.description}</p>
+          </div>
         </div>
-      </div>
-      <div>
-        <h1 className="text-3xl font-bold text-center pt-10 underline">
-          Blogs
-        </h1>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 lg:px-0 pt-10">
-          {blogs.length > 0 ? (
-            blogs.map((blog) => (
-              <div
-                key={blog._id}
-                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
-              >
-                {/* Blog Image */}
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-48 object-cover"
-                />
-                {/* Blog Content */}
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                    {blog.title}
-                  </h2>
-                  <p className="text-gray-600 mb-4">{blog.description}</p>
-                  {/* Optional read more link */}
-                  <a
-                    href={`/blogs/${blog._id}`}
-                    className="text-blue-500 hover:text-blue-600 font-semibold"
-                  >
-                    Read More →
-                  </a>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-500">No blogs available.</p>
-          )}
-        </div>
-      </div>
-      <div>
-        <h1 className="text-3xl font-bold text-center pt-10 underline">
-          Skills
-        </h1>
-        <div>
-          <section className="py-16">
-            <div className="container mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12">
-                My Skills
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {skills?.data?.map((skill) => (
-                  <SkillCard
-                    key={skill.name}
-                    name={skill.name}
-                    estimate={skill.estimate}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
+      ))}
     </div>
+  </section>
+
+  {/* Blogs Section */}
+  <section className="py-24 bg-gradient-to-r from-purple-600 to-pink-600">
+    <h1 className="text-4xl font-extrabold text-center mb-12 text-white animate-fade-in-up">
+      Blogs
+    </h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-6 lg:px-24">
+      {blogs.length > 0 ? (
+        blogs.map((blog) => (
+          <div
+            key={blog._id}
+            className="bg-blue-500/20 shadow-lg rounded-lg overflow-hidden transition duration-300 hover:scale-105"
+          >
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+            />
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-blue-200 mb-2">
+                {blog.title}
+              </h2>
+              <p className="text-blue-100 mb-4">{blog.description}</p>
+              <a
+                href={`/blogs/${blog._id}`}
+                className="text-blue-400 font-semibold hover:text-blue-500 transition-colors"
+              >
+                Read More →
+              </a>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p className="text-center text-gray-500">No blogs available.</p>
+      )}
+    </div>
+  </section>
+
+  {/* Skills Section */}
+  <section className="py-24 bg-gradient-to-r from-green-500 to-teal-500">
+    <h1 className="text-4xl font-extrabold text-center mb-12 text-white animate-fade-in-up">
+      Skills
+    </h1>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 px-6 lg:px-24">
+      {skills?.data?.map((skill) => (
+        <SkillCard
+          key={skill.name}
+          name={skill.name}
+          estimate={skill.estimate}
+        />
+      ))}
+    </div>
+  </section>
+  <div>
+    <Contact/>
+  </div>
+  <div>
+    <Footer/>
+  </div>
+</div>
   );
 };
 

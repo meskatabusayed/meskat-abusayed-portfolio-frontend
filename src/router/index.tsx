@@ -7,6 +7,7 @@ import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import Home from "@/pages/Home";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
         path:"/",
         element: <Home/>
       },
+      
       {
         path: "/projects",
         element: (
