@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaUser, FaFolderOpen, FaCode, FaEnvelope } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { MdDashboard } from "react-icons/md";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,18 +21,11 @@ const Navbar: React.FC = () => {
             <FaUser />
             <span>Home</span>
           </Link>
-          <Link to="/#projects" className="flex items-center space-x-1 hover:text-indigo-500 transition duration-300">
-            <FaFolderOpen />
-            <span>Projects</span>
+          <Link to="/dashboard" className="flex items-center space-x-1 hover:text-indigo-500 transition duration-300">
+          <MdDashboard />
+            <span>Dashboard</span>
           </Link>
-          <Link to="/#skills" className="flex items-center space-x-1 hover:text-indigo-500 transition duration-300">
-            <FaCode />
-            <span>Skills</span>
-          </Link>
-          <Link to="/contact" className="flex items-center space-x-1 hover:text-indigo-500 transition duration-300">
-            <FaEnvelope />
-            <span>Contact</span>
-          </Link>
+          
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -49,18 +43,11 @@ const Navbar: React.FC = () => {
             <FaUser />
             <span>Home</span>
           </Link>
-          <Link to="/#projects" className="block text-gray-300 flex items-center space-x-2 hover:text-indigo-500 transition duration-300">
-            <FaFolderOpen />
-            <span>Projects</span>
+          <Link to="/dashboard" className="flex items-center space-x-1 hover:text-indigo-500 transition duration-300">
+          <MdDashboard />
+            <span>Dashboard</span>
           </Link>
-          <Link to="/#skills" className="block text-gray-300 flex items-center space-x-2 hover:text-indigo-500 transition duration-300">
-            <FaCode />
-            <span>Skills</span>
-          </Link>
-          <Link to="/contact" className="block text-gray-300 flex items-center space-x-2 hover:text-indigo-500 transition duration-300">
-            <FaEnvelope />
-            <span>Contact</span>
-          </Link>
+          
         </div>
       )}
     </nav>

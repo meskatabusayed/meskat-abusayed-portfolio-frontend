@@ -6,6 +6,7 @@ import Skills from "@/pages/Skills";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import Home from "@/pages/Home";
+import DashboardPage from "@/pages/DashboardPage";
 
 
 const router = createBrowserRouter([
@@ -14,39 +15,35 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path:"/",
-        element: <Home/>
+        path: "/",
+        element: <Home />,
       },
-      
+     
+    ],
+  },
+  {
+    path : "/dashboard",
+    element: <DashboardPage/>,
+    children: [
       {
-        path: "/projects",
+        path: "/dashboard/projects",
         element: (
           <PrivateRoute>
             <Projects />
           </PrivateRoute>
         ),
       },
-      {
-        path: "/blogs",
-        element: (
-          <PrivateRoute>
-            <Blogs />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/skills",
-        element: (
-          <PrivateRoute>
-            <Skills />
-          </PrivateRoute>
-        ),
-      },
-    ],
+     
+
+    ]
   },
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/skills",
+    element: <Skills />,
   },
 ]);
 

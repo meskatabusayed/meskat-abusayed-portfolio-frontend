@@ -16,7 +16,7 @@ const Login: React.FC = () => {
 
     if (email === hardcodedEmail && password === hardcodedPassword) {
       localStorage.setItem("isAuthenticated", "true");
-      navigate("/"); // Redirect to dashboard after successful login
+      navigate("/dashboard/projects"); // Redirect to dashboard after successful login
     } else {
       setError("Invalid email or password. Please try again.");
     }

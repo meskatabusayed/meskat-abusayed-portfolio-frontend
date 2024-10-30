@@ -14,7 +14,7 @@ const Dashboard = () => {
   const items = [
     {
       title: "Projects",
-      url: "/projects",
+      url: "/dashboard/projects",
       icon: Home,
     },
     {
