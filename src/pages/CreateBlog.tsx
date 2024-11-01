@@ -27,10 +27,13 @@ const BlogUpload = () => {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
+    // Strip HTML tags from description
+    const strippedDescription = description.replace(/<[^>]+>/g, "");
+
     const blogData = {
       title,
       image,
-      description, // Send the rich text content
+      description: strippedDescription, // Use stripped description
     };
 
     try {
@@ -63,9 +66,6 @@ const BlogUpload = () => {
     }
   };
 
-  const refreshPage = () => {
-    window.location.reload(); // This will reload the entire page
-  };
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Post a New Blog</h1>
@@ -99,12 +99,10 @@ const BlogUpload = () => {
             onChange={setDescription}
             className="w-full p-2 border rounded"
             placeholder="Blog Description"
-            // required
           />
         </div>
         <button
           type="submit"
-          onClick={refreshPage}
           className="bg-black text-white px-4 py-2 rounded"
         >
           Upload Blog

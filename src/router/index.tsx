@@ -7,6 +7,7 @@ import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import Home from "@/pages/Home";
 import DashboardPage from "@/pages/DashboardPage";
+import ProjectDetails from "@/pages/ProjectDetails";
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      
+      
      
     ],
   },
@@ -25,6 +28,15 @@ const router = createBrowserRouter([
     path : "/dashboard",
     element: <DashboardPage/>,
     children: [
+      {
+        path: "/dashboard/projects",
+        element: (
+          <PrivateRoute>
+            <Projects />
+          </PrivateRoute>
+        ),
+      },
+      
       {
         path: "/dashboard/projects",
         element: (
@@ -56,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/projects/:id",
+    element: <ProjectDetails/>,
   },
   
 ]);

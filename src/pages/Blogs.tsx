@@ -83,14 +83,8 @@ const Blogs = () => {
                   <h2 className="text-2xl font-bold text-gray-800 mb-4">
                     {blog.title}
                   </h2>
-                  <p className="text-gray-600 mb-4 line-clamp-3">{blog.description}</p>
-                  {/* Optional read more link */}
-                  <a
-                    href={`/blogs/${blog._id}`}
-                    className="text-blue-500 hover:text-blue-600 font-semibold"
-                  >
-                    Read More → 
-                  </a>
+                  <p className="text-gray-600 mb-4">{blog.description}</p>
+                  
                 </div>
               </div>
             ))
