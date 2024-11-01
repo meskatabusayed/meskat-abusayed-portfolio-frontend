@@ -19,12 +19,12 @@ const Dashboard: React.FC = () => {
     },
     {
       title: "Blog",
-      url: "/blogs",
+      url: "/dashboard/blogs",
       icon: Text,
     },
     {
       title: "Skills",
-      url: "/skills",
+      url: "/dashboard/skills",
       icon: Magnet,
     },
   ];

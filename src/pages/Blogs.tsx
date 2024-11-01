@@ -42,54 +42,54 @@ const Blogs = () => {
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-gray-50 min-h-screen">
       <div
         onClick={() => navigate(-1)}
-        className="flex items-center gap-3 pb-5 cursor-pointer"
+        className="flex items-center gap-3 pb-5 cursor-pointer transition-transform duration-300 hover:scale-105"
       >
-        <BiArrowBack className="text-3xl" />
-        <h2 className="text-black">Go Back</h2>
+        <BiArrowBack className="text-3xl text-gray-700 hover:text-gray-900" />
+        <h2 className="text-black font-semibold">Go Back</h2>
       </div>
       <CreateBlog />
-      <span className="text-sm text-blue-300">
-        NB: If the new blog does not visible, please refresh the page
+      <span className="text-sm text-blue-300 text-center block mb-4">
+        NB: If the new blog does not appear, please refresh the page
       </span>
 
-      <h2 className="text-center text-3xl font-bold py-10">/Blogs</h2>
+      <h2 className="text-center text-4xl font-bold text-gray-800 py-10 underline">
+        /Blogs
+      </h2>
 
       {/* Loader */}
       {loading ? (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center h-48">
           <div className="loader border-t-transparent border-4 border-blue-500 rounded-full w-12 h-12 animate-spin"></div>
-          {/* Alternatively, you can display a text-based loader */}
-          {/* <p>Loading blogs...</p> */}
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 lg:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
           {blogs.length > 0 ? (
             blogs.map((blog) => (
               <div
                 key={blog._id}
-                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl duration-300"
               >
                 {/* Blog Image */}
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover transition-transform duration-300 transform hover:scale-110"
                 />
                 {/* Blog Content */}
                 <div className="p-6">
                   <h2 className="text-2xl font-bold text-gray-800 mb-4">
                     {blog.title}
                   </h2>
-                  <p className="text-gray-600 mb-4">{blog.description}</p>
+                  <p className="text-gray-600 mb-4 line-clamp-3">{blog.description}</p>
                   {/* Optional read more link */}
                   <a
                     href={`/blogs/${blog._id}`}
                     className="text-blue-500 hover:text-blue-600 font-semibold"
                   >
-                    Read More →
+                    Read More → 
                   </a>
                 </div>
               </div>

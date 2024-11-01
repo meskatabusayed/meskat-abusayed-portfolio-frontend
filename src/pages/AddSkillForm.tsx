@@ -43,7 +43,8 @@ const AddSkillForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6  rounded-lg">
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg transform transition-all duration-300 hover:scale-105">
+      <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Add a New Skill</h2>
       <div className="mb-4">
         <label
           htmlFor="name"
@@ -58,7 +59,7 @@ const AddSkillForm = () => {
           value={formData.name}
           onChange={handleInputChange}
           required
-          className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-300 ease-in-out transform hover:scale-105"
           placeholder="Enter skill name"
         />
       </div>
@@ -77,7 +78,7 @@ const AddSkillForm = () => {
           value={formData.estimate}
           onChange={handleInputChange}
           required
-          className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-300 ease-in-out transform hover:scale-105"
           placeholder="Enter skill percentage"
         />
       </div>
@@ -85,13 +86,13 @@ const AddSkillForm = () => {
       <button
         type="submit"
         onClick={refreshPage}
-        className="w-full bg-black text-white py-3 rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out font-semibold"
+        className="w-full bg-black text-white py-3 rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out font-semibold transform hover:scale-105"
       >
         Add Skill
       </button>
 
-      <span className="text-sm text-blue-300">
-        NB: If the new blog does not visible, please refresh the page
+      <span className="text-sm text-blue-300 text-center block mt-4">
+        NB: If the new skill does not appear, please refresh the page
       </span>
     </form>
   );

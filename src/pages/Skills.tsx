@@ -38,14 +38,14 @@ const Skills = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen p-6">
       {/* Back Button */}
       <div
         onClick={() => navigate(-1)}
-        className="flex items-center gap-3 pb-5 cursor-pointer"
+        className="flex items-center gap-3 pb-5 cursor-pointer hover:text-blue-600 transition duration-300"
       >
-        <BiArrowBack className="text-3xl" />
-        <h2 className="text-black">Go Back</h2>
+        <BiArrowBack className="text-3xl transform transition-transform duration-300 hover:scale-110" />
+        <h2 className="text-black font-semibold">Go Back</h2>
       </div>
 
       {/* Add Skill Form */}
@@ -55,14 +55,12 @@ const Skills = () => {
       <div>
         <section className="py-16">
           <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">My Skills</h2>
+            <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 animate-bounce">My Skills</h2>
 
             {/* Loader */}
             {loading ? (
               <div className="flex justify-center items-center">
                 <div className="loader border-t-transparent border-4 border-blue-500 rounded-full w-12 h-12 animate-spin"></div>
-                {/* Alternatively, you can display a text-based loader */}
-                {/* <p>Loading skills...</p> */}
               </div>
             ) : (
               // Display Skills if not loading
@@ -72,6 +70,7 @@ const Skills = () => {
                     key={skill.name}
                     name={skill.name}
                     estimate={skill.estimate}
+                    className="transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   />
                 ))}
               </div>
